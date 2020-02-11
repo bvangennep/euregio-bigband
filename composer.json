@@ -1,0 +1,17 @@
+{
+    "name": "bartvangennep/euregio-bigband",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bart van Gennep",
+            "homepage": "https://github.com/bvangennep"
+        }
+    ],
+    "require": {
+        "johnpbloch/wordpress": "^5.3"
+    },
+    "extra": {
+        "wordpress-install-dir": "./public/wordpress"
+    }
+}

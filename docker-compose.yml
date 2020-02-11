@@ -1,0 +1,19 @@
+version: '3.4'
+services:
+  mysql:
+    image: mysql
+    ports:
+      - "3306:3306"
+  web:
+    build: .
+    image: euregio-bigband
+    ports:
+      - "4200:4200"
+    volumes:
+      - './public/index.php:/var/www/euregio/public/index.php'
+      - './composer.json:/var/www/euregio/composer.json'
+      - './composer.lock:/var/www/euregio/composer.lock'
+      - './nginx_app.conf:/etc/nginx/conf.d/nginx_app.conf'
+
+
+
