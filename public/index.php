@@ -13,5 +13,10 @@
  */
 define( 'WP_USE_THEMES', true );
 
+/** Absolute path to the WordPress directory. */
+if ( ! defined( 'ABSPATH' ) ) {
+	define( 'ABSPATH', dirname( __FILE__ ) . '/wordpress/' );
+}
+
 /** Loads the WordPress Environment and Template */
-require(dirname( __FILE__ ) . '/wordpress/wp-blog-header.php' );
+require(ABSPATH . 'wp-blog-header.php' );

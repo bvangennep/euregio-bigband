@@ -1,19 +1,36 @@
 version: '3.4'
 services:
-  mysql:
-    image: mysql
+  mariadb:
+    image: mariadb
     ports:
       - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: super-secret
+      MYSQL_DATABASE: euregio-bigband
   web:
     build: .
     image: euregio-bigband
     ports:
       - "4200:4200"
+    links:
+      - mariadb
     volumes:
       - './public/index.php:/var/www/euregio/public/index.php'
+      - './public/wp-config.php:/var/www/euregio/public/wp-config.php'
+      - './config:/var/www/euregio/config'
       - './composer.json:/var/www/euregio/composer.json'
       - './composer.lock:/var/www/euregio/composer.lock'
       - './nginx_app.conf:/etc/nginx/conf.d/nginx_app.conf'
+    environment:
+      DATABASE_URL: mariadb://root:super-secret@mariadb:3306/euregio-bigband
+      AUTH_KEY: '#u]UKwb&aZw8p5_KX^LFrX9Q5,0;a6t0<uG. -:Rl.weW8`m&f-?vLi--yI8,_*'
+      SECURE_AUTH_KEY: '@Gb?p%vLNjUS>VOgQb+#Fk}]24sp@;z}Hml`lrK>XeE <.wrcaf=+TuFtr.Fw#4'
+      LOGGED_IN_KEY: '4#8ms*,Qd7a 7!uNM(zQmg|,aP&+-ydAV;YkJ)kv24S/p|sBb,qO.*TQOl]*+{#z'
+      NONCE_KEY: 'V_yQ>9/,>?/?t#G~mPxcHK#Q!U2e1zcb`5#iy6IbbCUzuV4^W60W2uV<<D T;{L'
+      AUTH_SALT: '93LLO*SA@%@@4ztp[PEh713Ti:6PbGZ*,(~unq {w;zT.PH &5qBC,66-Ag44XSK'
+      SECURE_AUTH_SALT: '#[PA-fhd1.>9N7ld|Xlh@kkP)@F?jX82V!=SVDa-U@Wr~MW=83.du1`rZ.aSiOj'
+      LOGGED_IN_SALT: 's_;G}iS383?M^c513scR&seL/ p<z++ps+().HV=[C&C.&/>Fh0)YMTy%FF%>N!'
+      NONCE_SALT: 'mpgL4) HqnVrVefpb!+D.7E^;g?3kYG+][[vd]ZAh<jw4)CleJun@A8VY-7S]2?'
 
 
 
