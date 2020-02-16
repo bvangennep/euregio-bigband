@@ -9,7 +9,9 @@
         }
     ],
     "require": {
-        "johnpbloch/wordpress": "^5.3"
+        "johnpbloch/wordpress": "^5.3",
+        "wp-cli/wp-cli": "^2.4",
+        "wp-cli/core-command": "^2.0"
     },
     "extra": {
         "wordpress-install-dir": "./public/wordpress"

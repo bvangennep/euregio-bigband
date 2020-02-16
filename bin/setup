@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+./vendor/bin/wp core install --url="$SITE_URL" --title="$SITE_TITLE" --admin_user="$ADMIN_USER" --admin_email="$ADMIN_EMAIL" --admin_password="$ADMIN_PASSWORD"

@@ -12,3 +12,4 @@ ADD . .
 
 USER nobody
 
+CMD ["bin/serve"]
