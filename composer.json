@@ -8,12 +8,25 @@
             "homepage": "https://github.com/bvangennep"
         }
     ],
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        }
+    ],
     "require": {
         "johnpbloch/wordpress": "^5.3",
         "wp-cli/wp-cli": "^2.4",
-        "wp-cli/core-command": "^2.0"
+        "wp-cli/core-command": "^2.0",
+        "wp-cli/extension-command": "^2.0",
+        "wpackagist-plugin/polylang": "^2.6",
+        "wp-graphql/wp-graphql": "^0.6.1",
+        "wp-graphql/wp-graphiql": "^1.0"
     },
     "extra": {
-        "wordpress-install-dir": "./public/wordpress"
+        "wordpress-install-dir": "./public/wordpress",
+        "installer-paths": {
+            "public/plugins/{$name}/": ["type:wordpress-plugin"]
+        }
     }
 }

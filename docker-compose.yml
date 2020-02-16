@@ -32,11 +32,13 @@ services:
       SECURE_AUTH_SALT: '#[PA-fhd1.>9N7ld|Xlh@kkP)@F?jX82V!=SVDa-U@Wr~MW=83.du1`rZ.aSiOj'
       LOGGED_IN_SALT: 's_;G}iS383?M^c513scR&seL/ p<z++ps+().HV=[C&C.&/>Fh0)YMTy%FF%>N!'
       NONCE_SALT: 'mpgL4) HqnVrVefpb!+D.7E^;g?3kYG+][[vd]ZAh<jw4)CleJun@A8VY-7S]2?'
-      SITE_URL: http://localhost:4200/wordpress
+      HOME_URL: http://localhost:4200
+      SITE_URL: $HOME_URL/wordpress
       SITE_TITLE: Euregio Bigband
       ADMIN_USER: euregio
       ADMIN_EMAIL: euregio@example.com
       ADMIN_PASSWORD: super-secret
+      WP_CLI_CACHE_DIR: /tmp/wp-cli
 
 
 
