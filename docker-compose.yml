@@ -11,18 +11,22 @@ services:
     build: .
     image: euregio-bigband
     ports:
-      - "4200:4200"
+      - "4200:80"
     links:
       - mariadb
+    command: bin/setup
     volumes:
-      - './public/index.php:/var/www/euregio/public/index.php'
-      - './public/wp-config.php:/var/www/euregio/public/wp-config.php'
-      - './config:/var/www/euregio/config'
-      - './bin:/var/www/euregio/bin'
-      - './composer.json:/var/www/euregio/composer.json'
-      - './composer.lock:/var/www/euregio/composer.lock'
-      - './nginx_app.conf:/etc/nginx/conf.d/nginx_app.conf'
+      - './public/index.php:/app/public/index.php'
+      - './public/wp-config.php:/app/public/wp-config.php'
+      - './config:/app/config'
+      - './bin:/app/bin'
+      - './composer.json:/app/composer.json'
+      - './composer.lock:/app/composer.lock'
+    cap_add:
+      - SYS_TIME
+      - SYS_NICE
     environment:
+      APACHE_SERVER_NAME: euregio-bigband.local
       DATABASE_URL: mariadb://root:super-secret@mariadb:3306/euregio-bigband
       AUTH_KEY: '#u]UKwb&aZw8p5_KX^LFrX9Q5,0;a6t0<uG. -:Rl.weW8`m&f-?vLi--yI8,_*'
       SECURE_AUTH_KEY: '@Gb?p%vLNjUS>VOgQb+#Fk}]24sp@;z}Hml`lrK>XeE <.wrcaf=+TuFtr.Fw#4'
@@ -33,7 +37,7 @@ services:
       LOGGED_IN_SALT: 's_;G}iS383?M^c513scR&seL/ p<z++ps+().HV=[C&C.&/>Fh0)YMTy%FF%>N!'
       NONCE_SALT: 'mpgL4) HqnVrVefpb!+D.7E^;g?3kYG+][[vd]ZAh<jw4)CleJun@A8VY-7S]2?'
       HOME_URL: http://localhost:4200
-      SITE_URL:  http://localhost:4200/wordpress
+      SITE_URL:  http://localhost:4200
       SITE_TITLE: Euregio Bigband
       ADMIN_USER: euregio
       ADMIN_EMAIL: euregio@example.com

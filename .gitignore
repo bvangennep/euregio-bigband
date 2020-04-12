@@ -1,2 +1,4 @@
 /vendor/
-/public/wordpress/
+/public/*
+!/public/index.php
+!/public/wp-config.php

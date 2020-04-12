@@ -15,8 +15,8 @@ define( 'WP_USE_THEMES', true );
 
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', dirname( __FILE__ ) . '/wordpress/' );
+	define( 'ABSPATH', dirname( __FILE__ ) . '/');
 }
 
 /** Loads the WordPress Environment and Template */
-require(ABSPATH . 'wp-blog-header.php' );
+require_once(ABSPATH . 'wp-blog-header.php' );

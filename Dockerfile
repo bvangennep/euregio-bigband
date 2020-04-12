@@ -1,15 +1,10 @@
-FROM trafex/alpine-nginx-php7
+FROM ulsmith/alpine-apache-php7
 
-USER root
-
-WORKDIR /var/www/euregio/
+WORKDIR /app/
 COPY --from=composer /usr/bin/composer /usr/bin/composer
-ADD nginx_app.conf /etc/nginx/conf.d/
 
 ADD composer.* ./
 RUN composer install --prefer-dist --no-scripts --no-suggest
 ADD . .
 
-USER nobody
-
-CMD ["bin/serve"]
+ENTRYPOINT ["bin/entrypoint"]
