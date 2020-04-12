@@ -20,6 +20,7 @@
         "wp-cli/core-command": "^2.0",
         "wp-cli/extension-command": "^2.0",
         "wpackagist-plugin/polylang": "^2.6",
+        "wpackagist-plugin/wp-custom-admin-interface": "^7.21",
         "wp-graphql/wp-graphql": "^0.6.1",
         "wp-graphql/wp-graphiql": "^1.0",
         "wp-cli/entity-command": "^2.0",

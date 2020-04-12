@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "45abd3efe59ce9508f58f17865657f4a",
+    "content-hash": "eaa37ccdb1403f24d39131500f600b0c",
     "packages": [
         {
             "name": "composer/installers",
@@ -1250,6 +1250,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/polylang/"
+        },
+        {
+            "name": "wpackagist-plugin/wp-custom-admin-interface",
+            "version": "7.21",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-custom-admin-interface/",
+                "reference": "tags/7.21"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-custom-admin-interface.7.21.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-custom-admin-interface/"
         }
     ],
     "packages-dev": [],
