@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
 
 ./vendor/bin/wp core install --url="$SITE_URL" --title="$SITE_TITLE" --admin_user="$ADMIN_USER" --admin_email="$ADMIN_EMAIL" --admin_password="$ADMIN_PASSWORD"
+./vendor/bin/wp language core install de_DE nl_NL en_GB
 ./vendor/bin/wp plugin activate polylang wp-graphql wp-graphiql
